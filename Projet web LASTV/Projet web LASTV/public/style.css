@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+  }
+
+  .container {
+    margin: 20px auto;
+    border: 1px solid grey;
+    display: flex;
+    height: 1000px;
+  }
+
+  .header {
+    background-color:#696969;
+    padding: 20px;
+    height: 150px;
+  }
+
+  .flex-item{
+      text-align: center;
+      flex-direction:row;
+  }
+
+  .list-item {
+    cursor: pointer;
+    color:black;
+    font-weight: bold;
+  }
+
+  .task-item{
+    cursor: pointer;
+  }
+
+  .div1{
+    background-color:gainsboro;
+    width: 25%;
+  }
+
+  .div2{
+    background-color:whitesmoke;
+    width: 50%;
+  }
+
+  .div3{
+    background-color:gainsboro;
+    width: 25%;
+  }
+
+  #myFormTask{
+    display: none;
+  }
+
+  #myFormList{
+    display: none;
+  }
+  
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1px 2px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    margin-bottom:1px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+
+
+  .addFriend
+  {
+    cursor: pointer;
+  }
+
+
+  #createTask
+  {
+    display: none;
+  }
+
+  #taskInfos{
+    display: none;
+  }

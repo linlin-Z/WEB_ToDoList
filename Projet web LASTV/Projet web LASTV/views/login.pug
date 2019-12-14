@@ -1,0 +1,24 @@
+doctype html
+html(lang='fr')
+  head
+    meta(charset='UTF-8')
+    title Index
+    link(rel='stylesheet', type='text/css', href='login.css')
+  body
+    #login_frame
+      p
+        label.label_title Welcome to TodoList 
+      form(method="post", action="/login/send")
+        p
+          label.label_input Username
+          input#email.text_field(type="email", name="email")
+        p
+          label.label_input Password
+          input#password.text_field(type="password", name="password")
+        #login_control
+          input#btn_login(type="submit", value='LogIn')
+          a(href='/register') Sign Up
+
+          
+        div 
+          h3= message

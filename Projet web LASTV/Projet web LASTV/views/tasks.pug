@@ -1,0 +1,19 @@
+extends layout.pug  
+block dynamicContent
+    .div1.flex-item
+    ul
+    for task in tasks 
+      li
+        span.task-item 
+          p #{task.name}
+          label Description:
+          p #{task.description}
+          label Deadline:
+          p #{task.deadline}
+          label(for='task-progress') Task Progress:
+          - let value = task.progression;
+          progress#task-progress(max='100', value=value) #{task.progression}  
+          | Fini? 
+    div
+      button
+        | Rajouter une tache

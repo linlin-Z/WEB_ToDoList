@@ -1,0 +1,11 @@
+extends layout.pug
+block dynamicContent
+  .div1.flex-item
+    ul
+    for list in lists 
+      li
+        span.list-item
+          | #{list.name}
+    div
+      button
+        | Créer une liste

@@ -1,0 +1,21 @@
+doctype html
+html(lang='fr')
+  head
+    meta(charset='UTF-8')
+    title Delete account
+    link(rel='stylesheet', type='text/css', href='login.css')
+  body
+    #login_frame
+      p
+        label.label_title You are about to delete your account
+      form(method="post", action="/user/delete")
+        p
+          label.label_input Username
+          input#email.text_field(type="email", name="email")
+        p
+          label.label_input Password
+          input#password.text_field(type="password", name="password")
+        #login_control
+          input#btn_login(type="submit", value='Delete Account')
+        div 
+          h3= message

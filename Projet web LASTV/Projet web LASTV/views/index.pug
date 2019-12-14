@@ -1,0 +1,120 @@
+doctype html
+html
+  head
+    title TodoLists
+    meta(charset='UTF-8')
+    script(src='/script.js', defer='defer', type='text/javascript')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    link(rel='stylesheet', href='https://code.getmdl.io/1.3.0/material.indigo-pink.min.css')
+    script(defer='', src='https://code.getmdl.io/1.3.0/material.min.js')
+    link(rel='stylesheet', href='/style.css')
+  body
+    div
+      header.header
+        h3 MyTodoLists
+        div
+          span  Hello #{email}
+          span
+            | (
+            a(href='/logout') Déconnexion
+            | )
+          span 
+            | (
+            a(href='/user/update') Modifier mon profil
+            | )
+          span 
+            | (
+            a(href='/user/delete') Supprimer mon profil
+            | )
+      main.container(role='main')
+        .div1.flex-item
+          ul
+            for list in lists
+              li(id = list.listid+"_list")
+                span.list-item(onclick='showTaskFromList(this)' id=list.listid)
+                  | #{list.name}
+                span
+                  button(onclick="deleteList(this)" id=list.listid+"_delete") Delete!
+                span
+                  button(onclick="updateList(this)" id=list.listid+"_update") Update!  
+          div
+            button.open-button(onclick='openFormList()') 
+              | Créer une liste
+          #myFormList.form-popup
+            form#listForm.form-container(action='/list', method="post")
+              h3#listFormHeader Create a new List
+              - if (typeof(messageList) !== 'undefined'){
+                h3=messageList
+              -}
+              div
+                label(for='name')
+                  b Name
+                input(type='text', placeholder='Enter Name', name='name', required='' id="listName")
+              div
+                label(for='description')
+                  b Description
+                textarea(rows='4', cols='50', name='description', placeholder='Enter Description...', required='' id="listDescription")
+              div
+                button#ListFormBtn.btn(type='submit') Create!
+              div
+                button.btn.cancel(type='button', onclick='closeFormList()') Close
+        .div2.flex-item
+          div
+            button.open-button#createTask(onclick='openFormTask()')
+              | Ajouter une Tache
+          ul#taches_listes
+        .div3.flex-item
+          div#taskInfos
+            div
+              i
+              label Name : 
+              label#task_name
+                
+            div
+              div
+                span
+                  i
+                  | Échéance
+                input#echeance_task(type='date')
+            div 
+              i 
+              label Description : 
+              p#task_description
+            
+            div
+              i 
+              label#label-progress Progression :
+              progress#task-progress(max=100, value=0)
+              p#progressBarNumber
+          #myFormTask.form-popup
+            form#taskForm.form-container(action='/task', method="post")
+              h3#taskFormHeader Create a new Task
+              - if (typeof(messageTask) !== 'undefined'){
+                h3=messageTask
+              -}
+              div
+                label(for='name')
+                  b Name
+                input(type='text', placeholder='Enter Name', name='name', required='' id="taskName")
+              div
+                label(for='listid', style="display: none")
+                  b Name
+              input(type='number' name='listid', style="display: none", id="inputListId")
+              div
+                label(for='description')
+                  b Description
+                textarea(rows='4', cols='50', name='description', placeholder='Enter Description...', required='' id="taskDescription")
+              div
+                label(for="deadline")
+                  b Deadline
+                input(type='date', id="taskDeadline", name="deadline")
+              div 
+                label(for="progression")
+                  b Progression
+                input(type="number", name="progression" min="0" max="100", id="taskProgression")
+
+              div
+                button#TaskFormBtn.btn(type='submit') Create!
+              div
+                button.btn.cancel(type='button', onclick='closeFormTask()') Close

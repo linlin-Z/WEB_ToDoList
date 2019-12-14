@@ -1,0 +1,36 @@
+doctype html
+html(lang='fr')
+  head
+    meta(charset='UTF-8')
+    link(rel='stylesheet', type='text/css', href='/register.css')
+  body
+    #login_frame
+      .reg-container
+        .reg-register-box
+          p
+            label.label_title Register
+          form(method='post', action='/register/send')
+            p
+              label.label_input email
+              input#email.text_field(type='email', name='email')
+            p
+              label.label_input username
+              input#username.text_field(type='text', name='username')
+            p
+              label.label_input firstname
+              input#firstname.text_field(type='text', name='firstname')
+            p
+              label.label_input lastname
+              input#lastname.text_field(type='text', name='lastname')
+            p
+              label.label_input password
+              input#password.text_field(type='password', name='password')
+            p
+              label.label_input confirm password
+              input#confirmpassword.text_field(type='password', name='confirmed_password')
+            div#login_control
+              input(type='submit', value='Submit')
+              a(href='/') Login
+            #message
+              p #{message}
+

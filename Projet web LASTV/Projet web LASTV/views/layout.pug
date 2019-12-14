@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title TodoLists
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='style.css', type='text/css', rel="stylesheet")
+
+  body
+    div
+      header.header
+        h3 MyTodoLists
+        div
+          span  user@example.com
+          span
+            | (
+            a(href='#logout') Déconnexion
+            | )
+      block dynamicContent
