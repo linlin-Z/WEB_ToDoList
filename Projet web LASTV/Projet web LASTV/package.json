@@ -10,8 +10,8 @@
   "author": "ELIE LEVY LIN ZHONG LOUIS RIOS DE DIEGO",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "express-session": "^1.15.6",
     "express-validator": "^5.3.1",
     "multiparty": "^4.2.1",
